@@ -3,11 +3,12 @@ import { notFound } from 'next/navigation';
 import ProductDetail from '@/components/ProductDetail';
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function ProductPage({ params }: Props) {
-  const product = getProductById(params.id);
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params;
+  const product = getProductById(id);
   if (!product) notFound();
 
   const related = getRelatedProducts(product.id, product.category);
