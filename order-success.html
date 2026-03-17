@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,13 +14,14 @@
     <div class="header-inner container">
       <a href="index.html" class="logo" aria-label="Dar Essaaf home">
         <img src="assets/dar-essaaf-logo.png" alt="Dar Essaaf" class="logo-img" />
+        <span class="logo-text">Dar Essaaf Shop</span>
       </a>
     </div>
   </header>
 
   <section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 24px;">
     <div style="max-width: 560px;">
-      <div style="font-size: 5rem; margin-bottom: 24px;">✅</div>
+      <div style="font-size: 5rem; margin-bottom: 24px;">?</div>
       <div class="section-tag" style="justify-content: center; display: flex;">Order Confirmed</div>
       <h1 style="font-family: var(--font-display); font-size: 2.6rem; margin: 12px 0 16px;">Thank You!</h1>
       <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 8px;">Your order has been received and is being prepared by our artisans.</p>
@@ -30,15 +31,15 @@
         <h4 style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;">What Happens Next</h4>
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <span style="font-size: 1.4rem">📧</span>
+            <span style="font-size: 1.4rem">??</span>
             <div><strong>Confirmation Email</strong><br/><span style="font-size:0.85rem;color:var(--text-muted)">You'll receive a summary within minutes.</span></div>
           </div>
           <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <span style="font-size: 1.4rem">👐</span>
-            <div><strong>Artisan Preparation</strong><br/><span style="font-size:0.85rem;color:var(--text-muted)">Your items are carefully packaged by hand within 2–3 business days.</span></div>
+            <span style="font-size: 1.4rem">??</span>
+            <div><strong>Artisan Preparation</strong><br/><span style="font-size:0.85rem;color:var(--text-muted)">Your items are carefully packaged by hand within 2�3 business days.</span></div>
           </div>
           <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <span style="font-size: 1.4rem">🚚</span>
+            <span style="font-size: 1.4rem">??</span>
             <div><strong>Shipping & Tracking</strong><br/><span style="font-size:0.85rem;color:var(--text-muted)">You'll receive tracking info once dispatched.</span></div>
           </div>
         </div>
@@ -55,7 +56,7 @@
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('id');
     if (orderId) {
-      document.getElementById('orderIdLine').textContent = `Order #${orderId} � A confirmation email will be sent to you shortly.`;
+      document.getElementById('orderIdLine').textContent = `Order #${orderId} ? A confirmation email will be sent to you shortly.`;
     }
   </script>
 </body>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,15 +15,16 @@
     <div class="header-inner container">
       <a href="index.html" class="logo" aria-label="Dar Essaaf home">
         <img src="assets/dar-essaaf-logo.png" alt="Dar Essaaf" class="logo-img" />
+        <span class="logo-text">Dar Essaaf Shop</span>
       </a>
       <div class="checkout-progress">
         <span class="progress-step active">Information</span>
-        <span class="progress-arrow">›</span>
+        <span class="progress-arrow">�</span>
         <span class="progress-step">Shipping</span>
-        <span class="progress-arrow">›</span>
+        <span class="progress-arrow">�</span>
         <span class="progress-step">Payment</span>
       </div>
-      <div class="checkout-secure">🔒 Secure</div>
+      <div class="checkout-secure">?? Secure</div>
     </div>
   </header>
 
@@ -77,7 +78,7 @@
             <input type="radio" name="shipping" value="standard" checked onchange="updateShipping(12)" />
             <div class="shipping-option-body">
               <span class="shipping-name">Standard Shipping</span>
-              <span class="shipping-eta">7–14 business days</span>
+              <span class="shipping-eta">7�14 business days</span>
             </div>
             <span class="shipping-price">12 TND</span>
           </label>
@@ -85,7 +86,7 @@
             <input type="radio" name="shipping" value="express" onchange="updateShipping(28)" />
             <div class="shipping-option-body">
               <span class="shipping-name">Express Shipping</span>
-              <span class="shipping-eta">2–5 business days</span>
+              <span class="shipping-eta">2�5 business days</span>
             </div>
             <span class="shipping-price">28 TND</span>
           </label>
@@ -94,7 +95,7 @@
         <!-- PAYMENT -->
         <div class="checkout-block">
           <h3>Payment</h3>
-          <p class="checkout-secure-badge">🔒 All transactions are secure and encrypted.</p>
+          <p class="checkout-secure-badge">?? All transactions are secure and encrypted.</p>
           <div class="payment-tabs">
             <button class="payment-tab active" onclick="switchPayment('card', this)">Credit Card</button>
             <button class="payment-tab" onclick="switchPayment('cod', this)">Cash on Delivery</button>
@@ -108,14 +109,14 @@
             <input type="text" placeholder="Name on card" class="form-input" />
           </div>
           <div id="paymentCOD" class="payment-block hidden">
-            <p class="cod-note">💵 You will pay when your order is delivered. A confirmation will be sent to your email.</p>
+            <p class="cod-note">?? You will pay when your order is delivered. A confirmation will be sent to your email.</p>
           </div>
         </div>
 
         <button class="btn btn-primary btn-full btn-lg" onclick="placeOrder()">
           Complete Order
         </button>
-        <p class="checkout-back"><a href="cart.html">← Return to cart</a></p>
+        <p class="checkout-back"><a href="cart.html">? Return to cart</a></p>
       </div>
 
       <!-- RIGHT: ORDER SUMMARY -->
@@ -142,7 +143,7 @@
 
   <footer class="site-footer">
     <div class="footer-bottom container">
-      <p>� 2025 dar-essaaf-shop. All rights reserved. � <a href="#">Privacy Policy</a> � <a href="#">Terms</a></p>
+      <p>? 2025 dar-essaaf-shop. All rights reserved. ? <a href="#">Privacy Policy</a> ? <a href="#">Terms</a></p>
     </div>
   </footer>
 
