@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="artisans.html" class="nav-link">Our Artisans</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-btn" onclick="window.location='cart.html'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-banner page-banner--sm">
+    <div class="container">
+      <div class="breadcrumb" id="productBreadcrumb"><a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span>Product</span></div>
+    </div>
+  </div>
+
+  <section class="product-section section">
+    <div class="container product-layout" id="productLayout">
+      <!-- Injected by JS -->
+      <div class="product-loading">Loading product...</div>
+    </div>
+  </section>
+
+  <!-- PRODUCT DETAILS ACCORDION -->
+  <section class="product-details-section container" id="productAccordion">
+    <!-- Injected by JS -->
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section section section--sand">
+    <div class="container">
+      <h3 class="section-title">Customer Reviews</h3>
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Also Love</div>
+        <h2 class="section-title">You May Also Like</h2>
+      </div>
+      <div class="products-grid" id="relatedGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Wholesale — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="artisans.html" class="nav-link">Our Artisans</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-btn" onclick="window.location='cart.html'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-banner">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Contact</span></div>
+      <h1 class="page-banner-title">Get in Touch</h1>
+      <p class="page-banner-sub">We're based in Djerba — and always happy to hear from you.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <!-- CONTACT FORM -->
+      <div class="contact-form-col">
+        <div class="contact-tabs">
+          <button class="contact-tab active" onclick="switchContactTab('general', this)">General Inquiry</button>
+          <button class="contact-tab" id="wholesaleTab" onclick="switchContactTab('wholesale', this)">Wholesale / B2B</button>
+        </div>
+
+        <div id="tabGeneral" class="contact-tab-content">
+          <div class="form-row">
+            <input type="text" placeholder="Your name" class="form-input" />
+            <input type="email" placeholder="Email address" class="form-input" />
+          </div>
+          <input type="text" placeholder="Subject" class="form-input" />
+          <textarea placeholder="Your message..." class="form-textarea" rows="5"></textarea>
+          <button class="btn btn-primary" onclick="submitContact()">Send Message</button>
+        </div>
+
+        <div id="tabWholesale" class="contact-tab-content hidden">
+          <p class="wholesale-intro">Interested in stocking Djerba Palms products? We offer wholesale pricing for boutiques, interior designers, and retailers worldwide.</p>
+          <div class="form-row">
+            <input type="text" placeholder="Contact name" class="form-input" />
+            <input type="text" placeholder="Company name" class="form-input" />
+          </div>
+          <div class="form-row">
+            <input type="email" placeholder="Business email" class="form-input" />
+            <input type="tel" placeholder="Phone number" class="form-input" />
+          </div>
+          <select class="form-input">
+            <option value="">Business type</option>
+            <option>Boutique / Retail Store</option>
+            <option>Interior Design Studio</option>
+            <option>Online Retailer</option>
+            <option>Hotel / Hospitality</option>
+            <option>Other</option>
+          </select>
+          <input type="text" placeholder="Estimated monthly order quantity" class="form-input" />
+          <textarea placeholder="Tell us about your business and which products interest you..." class="form-textarea" rows="4"></textarea>
+          <button class="btn btn-primary" onclick="submitWholesale()">Submit Wholesale Inquiry</button>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <aside class="contact-info">
+        <div class="contact-info-card">
+          <h4>📍 Visit Us</h4>
+          <p>Midoun Market, Djerba<br />Médenine Governorate, Tunisia</p>
+        </div>
+        <div class="contact-info-card">
+          <h4>📧 Email</h4>
+          <p><a href="mailto:hello@djerba-palms.tn">hello@djerba-palms.tn</a></p>
+          <p><a href="mailto:wholesale@djerba-palms.tn">wholesale@djerba-palms.tn</a></p>
+        </div>
+        <div class="contact-info-card">
+          <h4>📞 Phone</h4>
+          <p>+216 75 XXX XXX</p>
+          <p class="contact-hours">Mon–Fri, 9am–5pm (CET)</p>
+        </div>
+        <div class="contact-info-card">
+          <h4>💬 Social</h4>
+          <div class="footer-social">
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Pinterest</a>
+          </div>
+        </div>
+        <div class="faq-block">
+          <h4>Common Questions</h4>
+          <details class="faq-item">
+            <summary>Do you ship worldwide?</summary>
+            <p>Yes! We ship to 40+ countries. Shipping rates are calculated at checkout.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are all products handmade?</summary>
+            <p>Absolutely. Every piece is handwoven by artisan families on the island of Djerba.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is your return policy?</summary>
+            <p>We accept returns within 14 days for unused items in original condition.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I request custom orders?</summary>
+            <p>Yes! Contact us via the wholesale form and we'll discuss custom weaving options.</p>
+          </details>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text" style="color: #EEDC9A; font-size:1.4rem;">🌴 Djerba <em>Palms</em></span>
+        <p>Handwoven with love in Djerba, Tunisia.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="shop.html?cat=baskets">Woven Baskets</a>
+        <a href="shop.html?cat=mats">Traditional Mats</a>
+        <a href="shop.html?cat=decor">Home Decor</a>
+        <a href="shop.html?cat=fashion">Hats & Bags</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="artisans.html">Our Artisans</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

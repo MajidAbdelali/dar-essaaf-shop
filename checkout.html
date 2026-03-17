@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header site-header--checkout" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <div class="checkout-progress">
+        <span class="progress-step active">Information</span>
+        <span class="progress-arrow">›</span>
+        <span class="progress-step">Shipping</span>
+        <span class="progress-arrow">›</span>
+        <span class="progress-step">Payment</span>
+      </div>
+      <div class="checkout-secure">🔒 Secure</div>
+    </div>
+  </header>
+
+  <section class="checkout-section section">
+    <div class="container checkout-layout">
+
+      <!-- LEFT: FORM -->
+      <div class="checkout-form-col">
+        <!-- CONTACT INFO -->
+        <div class="checkout-block">
+          <div class="checkout-block-header">
+            <h3>Contact Information</h3>
+            <span class="checkout-login-hint">Have an account? <a href="#">Log in</a></span>
+          </div>
+          <input type="email" placeholder="Email address" class="form-input" id="emailInput" required />
+          <label class="form-checkbox">
+            <input type="checkbox" checked /> Keep me up to date on news & exclusive offers
+          </label>
+        </div>
+
+        <!-- SHIPPING INFO -->
+        <div class="checkout-block">
+          <h3>Shipping Information</h3>
+          <div class="form-row">
+            <input type="text" placeholder="First name" class="form-input" id="firstName" required />
+            <input type="text" placeholder="Last name" class="form-input" id="lastName" required />
+          </div>
+          <input type="text" placeholder="Address" class="form-input" id="address" required />
+          <input type="text" placeholder="Apartment, suite, etc. (optional)" class="form-input" id="address2" />
+          <div class="form-row">
+            <input type="text" placeholder="City" class="form-input" id="city" required />
+            <input type="text" placeholder="Postal code" class="form-input" id="postal" required />
+          </div>
+          <select class="form-input" id="country">
+            <option value="">Select country</option>
+            <option value="TN" selected>Tunisia</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            <option value="GB">United Kingdom</option>
+            <option value="US">United States</option>
+            <option value="IT">Italy</option>
+            <option value="ES">Spain</option>
+          </select>
+          <input type="tel" placeholder="Phone (optional)" class="form-input" id="phone" />
+        </div>
+
+        <!-- SHIPPING METHOD -->
+        <div class="checkout-block">
+          <h3>Shipping Method</h3>
+          <label class="shipping-option">
+            <input type="radio" name="shipping" value="standard" checked onchange="updateShipping(12)" />
+            <div class="shipping-option-body">
+              <span class="shipping-name">Standard Shipping</span>
+              <span class="shipping-eta">7–14 business days</span>
+            </div>
+            <span class="shipping-price">12 TND</span>
+          </label>
+          <label class="shipping-option">
+            <input type="radio" name="shipping" value="express" onchange="updateShipping(28)" />
+            <div class="shipping-option-body">
+              <span class="shipping-name">Express Shipping</span>
+              <span class="shipping-eta">2–5 business days</span>
+            </div>
+            <span class="shipping-price">28 TND</span>
+          </label>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="checkout-block">
+          <h3>Payment</h3>
+          <p class="checkout-secure-badge">🔒 All transactions are secure and encrypted.</p>
+          <div class="payment-tabs">
+            <button class="payment-tab active" onclick="switchPayment('card', this)">Credit Card</button>
+            <button class="payment-tab" onclick="switchPayment('cod', this)">Cash on Delivery</button>
+          </div>
+          <div id="paymentCard" class="payment-block">
+            <input type="text" placeholder="Card number" class="form-input" maxlength="19" oninput="formatCard(this)" />
+            <div class="form-row">
+              <input type="text" placeholder="MM / YY" class="form-input" maxlength="7" />
+              <input type="text" placeholder="CVV" class="form-input" maxlength="4" />
+            </div>
+            <input type="text" placeholder="Name on card" class="form-input" />
+          </div>
+          <div id="paymentCOD" class="payment-block hidden">
+            <p class="cod-note">💵 You will pay when your order is delivered. A confirmation will be sent to your email.</p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-lg" onclick="placeOrder()">
+          Complete Order
+        </button>
+        <p class="checkout-back"><a href="cart.html">← Return to cart</a></p>
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="checkout-summary">
+        <h3 class="cart-summary-title">Order Summary</h3>
+        <div id="checkoutItemsList">
+          <!-- Injected by JS -->
+        </div>
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="coSubtotal">0 TND</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Shipping</span>
+          <span id="coShipping">12 TND</span>
+        </div>
+        <div class="cart-summary-line cart-summary-total">
+          <span>Total</span>
+          <span id="coTotal">0 TND</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

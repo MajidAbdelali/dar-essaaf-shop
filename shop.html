@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="artisans.html" class="nav-link">Our Artisans</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-btn" onclick="window.location='cart.html'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-banner">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Shop</span></div>
+      <h1 class="page-banner-title">The Collection</h1>
+      <p class="page-banner-sub">Every piece handwoven by Djerbian artisans</p>
+    </div>
+  </div>
+
+  <!-- SHOP LAYOUT -->
+  <section class="shop-section section">
+    <div class="container shop-layout">
+
+      <!-- SIDEBAR FILTERS -->
+      <aside class="shop-sidebar">
+        <div class="filter-group">
+          <h4 class="filter-title">Category</h4>
+          <label class="filter-option"><input type="radio" name="cat" value="" checked onchange="filterProducts()"> All Products</label>
+          <label class="filter-option"><input type="radio" name="cat" value="baskets" onchange="filterProducts()"> Woven Baskets</label>
+          <label class="filter-option"><input type="radio" name="cat" value="mats" onchange="filterProducts()"> Traditional Mats</label>
+          <label class="filter-option"><input type="radio" name="cat" value="decor" onchange="filterProducts()"> Home Decor</label>
+          <label class="filter-option"><input type="radio" name="cat" value="fashion" onchange="filterProducts()"> Hats & Bags</label>
+        </div>
+        <div class="filter-group">
+          <h4 class="filter-title">Price Range</h4>
+          <div class="price-range-labels">
+            <span id="priceMin">0 TND</span>
+            <span id="priceMax">500 TND</span>
+          </div>
+          <input type="range" min="0" max="500" value="500" class="price-slider" id="priceSlider" oninput="updatePrice(this.value)" />
+        </div>
+        <div class="filter-group">
+          <h4 class="filter-title">Sort By</h4>
+          <select class="filter-select" onchange="sortProducts(this.value)">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <button class="btn btn-ghost btn-full" onclick="resetFilters()">Reset Filters</button>
+        </div>
+      </aside>
+
+      <!-- PRODUCT GRID -->
+      <div class="shop-main">
+        <div class="shop-top-bar">
+          <p class="product-count" id="productCount">Loading products...</p>
+          <button class="btn btn-ghost btn-sm mobile-filter-btn" onclick="toggleMobileSidebar()">⚙ Filter</button>
+        </div>
+        <div class="products-grid" id="shopProductsGrid">
+          <!-- Products injected by JS -->
+        </div>
+        <div class="load-more-wrap">
+          <button class="btn btn-ghost" id="loadMoreBtn" onclick="loadMore()">Load More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text" style="color: #EEDC9A; font-size:1.4rem;">🌴 Djerba <em>Palms</em></span>
+        <p>Handwoven with love in Djerba, Tunisia.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="shop.html?cat=baskets">Woven Baskets</a>
+        <a href="shop.html?cat=mats">Traditional Mats</a>
+        <a href="shop.html?cat=decor">Home Decor</a>
+        <a href="shop.html?cat=fashion">Hats & Bags</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="artisans.html">Our Artisans</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

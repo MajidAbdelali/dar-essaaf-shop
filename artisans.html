@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Artisans — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="artisans.html" class="nav-link active">Our Artisans</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-btn" onclick="window.location='cart.html'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="artisan-hero">
+    <div class="container artisan-hero-inner">
+      <div class="artisan-hero-text">
+        <div class="section-tag">Our Heritage</div>
+        <h1 class="hero-title">The Hands<br/><em>Behind Every Weave</em></h1>
+        <p>For over a century, families on the Island of Djerba have transformed sun-dried palm fronds into intricate, beautiful objects. We work directly with these artisans to bring their craft to the world — fairly, transparently, and with deep respect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STATS -->
+  <section class="artisan-stats section--sand">
+    <div class="container artisan-stats-inner">
+      <div class="artisan-stat">
+        <div class="artisan-stat-num">120+</div>
+        <div class="artisan-stat-label">Artisan Families</div>
+      </div>
+      <div class="artisan-stat">
+        <div class="artisan-stat-num">1920</div>
+        <div class="artisan-stat-label">Founding Year</div>
+      </div>
+      <div class="artisan-stat">
+        <div class="artisan-stat-num">6</div>
+        <div class="artisan-stat-label">Villages</div>
+      </div>
+      <div class="artisan-stat">
+        <div class="artisan-stat-num">100%</div>
+        <div class="artisan-stat-label">Fair Trade</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS STEPS -->
+  <section class="process-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">The Process</div>
+        <h2 class="section-title">From Palm to Your Home</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h4>Harvesting</h4>
+          <p>Young palm fronds are hand-harvested from date palm trees during specific seasons, carefully chosen so the tree continues to thrive.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h4>Drying & Dyeing</h4>
+          <p>Fronds are sun-dried for several weeks, then dyed using traditional natural pigments derived from plants and minerals found on the island.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h4>Weaving</h4>
+          <p>Artisans weave the dried fronds by hand using patterns passed down over generations. A single basket can take 2 to 3 days to complete.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <h4>Quality Check</h4>
+          <p>Every piece is inspected by our cooperative before packaging. Imperfect pieces are returned to the artisan — no shortcuts, ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISAN PROFILES -->
+  <section class="artisan-profiles section section--sand">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Meet Them</div>
+        <h2 class="section-title">Featured Artisans</h2>
+      </div>
+      <div class="artisan-grid" id="artisanGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSTAINABILITY -->
+  <section class="sustain-section section">
+    <div class="container sustain-inner">
+      <div class="sustain-text">
+        <div class="section-tag">Planet & People</div>
+        <h2 class="section-title">Sustainable by Nature</h2>
+        <p>Palm weaving uses no electricity, no industrial machinery, and no synthetic chemicals. The raw material — the palm frond — is a natural byproduct of date palm cultivation, a crop central to Djerbian farming for millennia.</p>
+        <ul class="sustain-list">
+          <li>✓ Zero industrial carbon footprint in production</li>
+          <li>✓ 100% biodegradable materials</li>
+          <li>✓ Artisans earn 3× the regional average wage</li>
+          <li>✓ Cooperative model — no middlemen</li>
+        </ul>
+        <a href="shop.html" class="btn btn-primary">Shop Sustainably</a>
+      </div>
+      <div class="sustain-visual">
+        <div class="sustain-img-frame">
+          <div class="palm-illustration">
+            <div class="palm-trunk"></div>
+            <div class="palm-leaf pl1"></div>
+            <div class="palm-leaf pl2"></div>
+            <div class="palm-leaf pl3"></div>
+            <div class="palm-leaf pl4"></div>
+            <div class="palm-leaf pl5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section section--blue">
+    <div class="container cta-inner">
+      <h2>Every Purchase Supports a Family</h2>
+      <p>When you buy from Djerba Palms, 80% of the price goes directly to the artisan. Shopping has never felt this good.</p>
+      <a href="shop.html" class="btn btn-sand btn-lg">Shop the Collection</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text" style="color: #EEDC9A; font-size:1.4rem;">🌴 Djerba <em>Palms</em></span>
+        <p>Handwoven with love in Djerba, Tunisia.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="shop.html?cat=baskets">Woven Baskets</a>
+        <a href="shop.html?cat=mats">Traditional Mats</a>
+        <a href="shop.html?cat=decor">Home Decor</a>
+        <a href="shop.html?cat=fashion">Hats & Bags</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="artisans.html">Our Artisans</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/artisans.js"></script>
+</body>
+</html>

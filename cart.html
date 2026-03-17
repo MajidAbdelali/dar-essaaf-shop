@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — Djerba Palms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌴</span>
+        <span class="logo-text">Djerba <em>Palms</em></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="artisans.html" class="nav-link">Our Artisans</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-banner">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Your Cart</span></div>
+      <h1 class="page-banner-title">Your Cart</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container cart-layout">
+
+      <!-- CART ITEMS -->
+      <div class="cart-items-col">
+        <div id="cartItemsList">
+          <!-- Injected by JS -->
+        </div>
+        <div class="cart-empty hidden" id="cartEmpty">
+          <div class="cart-empty-icon">🌴</div>
+          <h3>Your cart is empty</h3>
+          <p>Explore our collection and bring some Djerbian craft home.</p>
+          <a href="shop.html" class="btn btn-primary">Browse Collection</a>
+        </div>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <aside class="cart-summary" id="cartSummary">
+        <h3 class="cart-summary-title">Order Summary</h3>
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="summarySubtotal">0 TND</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Shipping</span>
+          <span id="summaryShipping">Calculated at checkout</span>
+        </div>
+        <div class="cart-summary-line cart-summary-total">
+          <span>Total</span>
+          <span id="summaryTotal">0 TND</span>
+        </div>
+        <div class="coupon-row">
+          <input type="text" placeholder="Coupon code" class="coupon-input" id="couponInput" />
+          <button class="btn btn-ghost btn-sm" onclick="applyCoupon()">Apply</button>
+        </div>
+        <a href="checkout.html" class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Checkout</a>
+        <p class="cart-secure-note">🔒 Secure checkout · SSL encrypted</p>
+        <a href="shop.html" class="btn btn-ghost btn-full">Continue Shopping</a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-bottom container">
+      <p>© 2025 Djerba Palms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
