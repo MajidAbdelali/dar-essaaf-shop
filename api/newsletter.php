@@ -1,6 +1,6 @@
-<?php
-// POST /api/newsletter.php  — Subscribe to newsletter
-// POST /api/wholesale.php   — Submit wholesale inquiry
+﻿<?php
+// POST /api/newsletter.php  - Subscribe to newsletter
+// POST /api/wholesale.php   - Submit wholesale inquiry
 
 require_once 'config.php';
 
@@ -71,3 +71,5 @@ if ($route === 'newsletter') {
     http_response_code(404);
     echo json_encode(['success' => false, 'error' => 'Unknown route']);
 }
+
+

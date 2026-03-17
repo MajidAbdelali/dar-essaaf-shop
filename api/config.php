@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 // ===========================
-// DJERBA PALMS — DB CONFIG
+// DAR-ESSAAF-SHOP - DB CONFIG
 // For use with XAMPP/MySQL
 // ===========================
 
@@ -42,3 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
 }
+
+
+

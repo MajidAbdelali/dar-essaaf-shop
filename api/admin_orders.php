@@ -1,10 +1,10 @@
-<?php
-// GET  /api/admin_orders.php  — fetch orders + stats
-// POST /api/admin_orders.php  — update order status
+﻿<?php
+// GET  /api/admin_orders.php  - fetch orders + stats
+// POST /api/admin_orders.php  - update order status
 
 require_once 'config.php';
 
-// Simple admin check — replace with session/auth in production
+// Simple admin check - replace with session/auth in production
 // Example: if (!isset($_SESSION['admin'])) { http_response_code(403); exit; }
 
 $db = getDB();
@@ -59,3 +59,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     echo json_encode(['success' => true, 'message' => "Order #$orderId updated to $status"]);
 }
+
+

@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    CONTACT PAGE JS
    =========================== */
 
@@ -24,3 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab) switchContactTab('wholesale', tab);
   }
 });
+

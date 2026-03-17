@@ -1,5 +1,5 @@
--- ===========================
--- DJERBA PALMS — DATABASE SCHEMA
+﻿-- ===========================
+-- DAR-ESSAAF-SHOP - DATABASE SCHEMA
 -- Import via phpMyAdmin or: mysql -u root djerba_palms < schema.sql
 -- ===========================
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS reviews (
 
 INSERT INTO reviews (product_id, name, location, rating, body, is_approved) VALUES
   (1, 'Sophie L.',   'Paris, France',  5, 'Absolutely beautiful! The craftsmanship is impeccable. I can feel how much time and skill went into making this piece.', 1),
-  (1, 'Ibrahim K.',  'Dubai, UAE',     5, 'Third order from Djerba Palms. Quality is consistently excellent. Fast shipping and gorgeous packaging.', 1),
+  (1, 'Ibrahim K.',  'Dubai, UAE',     5, 'Third order from dar-essaaf-shop. Quality is consistently excellent. Fast shipping and gorgeous packaging.', 1),
   (3, 'Anna M.',     'Berlin, Germany',4, 'Really lovely piece. Colors are warm and natural. Slight variation from the photo but expected for handmade.', 1),
   (8, 'Lucia R.',    'Rome, Italy',    5, 'The bread basket is now the centrepiece of my kitchen table. Everyone asks where I got it!', 1),
   (2, 'James T.',    'London, UK',     5, 'Ordered 4 mats for our boutique. Guests love them. Will order again.', 1);
@@ -255,3 +255,6 @@ SELECT
 FROM products p
 JOIN categories c ON p.category_id = c.id
 LEFT JOIN artisans a ON p.artisan_id = a.id;
+
+
+

@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    PRODUCT DETAIL JS
    =========================== */
 
@@ -6,7 +6,7 @@ let currentQty = 1;
 
 const REVIEWS_DATA = [
   { name: "Sophie L.", location: "Paris", rating: 5, date: "March 2025", text: "Absolutely beautiful! The craftsmanship is impeccable. I can tell how much time and skill went into making this piece.", avatar: "S" },
-  { name: "Ibrahim K.", location: "Dubai", rating: 5, date: "February 2025", text: "Third order from Djerba Palms. The quality is consistently excellent. Fast shipping and gorgeous packaging too.", avatar: "I" },
+  { name: "Ibrahim K.", location: "Dubai", rating: 5, date: "February 2025", text: "Third order from dar-essaaf-shop. The quality is consistently excellent. Fast shipping and gorgeous packaging too.", avatar: "I" },
   { name: "Anna M.", location: "Berlin", rating: 4, date: "January 2025", text: "Really lovely piece. Colors are warm and natural. Only slight variation from the photo but that's to be expected from handmade.", avatar: "A" },
 ];
 
@@ -26,7 +26,7 @@ function initProductPage() {
   const bc = document.getElementById('productBreadcrumb');
   if (bc) bc.innerHTML = `<a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span>${product.name}</span>`;
 
-  document.title = `${product.name} — Djerba Palms`;
+  document.title = `${product.name} - dar-essaaf-shop`;
 
   // Render main product layout
   const layout = document.getElementById('productLayout');
@@ -34,7 +34,7 @@ function initProductPage() {
 
   const stockHtml = product.stock === 'low'
     ? `<div class="product-stock stock-low">⚠ Only 2 left in stock</div>`
-    : `<div class="product-stock stock-in">✓ In Stock · Ready to ship</div>`;
+    : `<div class="product-stock stock-in">✓ In Stock � Ready to ship</div>`;
 
   const oldPriceHtml = product.oldPrice
     ? `<span class="product-price-old">${product.oldPrice} TND</span>`
@@ -51,11 +51,11 @@ function initProductPage() {
       </div>
     </div>
     <div class="product-info-col">
-      <div class="product-category-tag">${product.category} · By ${product.artisan}, ${product.village}</div>
+      <div class="product-category-tag">${product.category} � By ${product.artisan}, ${product.village}</div>
       <h1 class="product-title">${product.name}</h1>
       <div class="product-rating-row">
         <span class="stars" style="font-size:1rem;color:#F4A233">${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5-Math.round(product.rating))}</span>
-        <span style="font-size:0.85rem;color:var(--text-muted)">${product.rating} · ${product.reviews} reviews</span>
+        <span style="font-size:0.85rem;color:var(--text-muted)">${product.rating} � ${product.reviews} reviews</span>
       </div>
       <div class="product-price-row">
         <span class="product-price-main">${product.price} TND</span>
@@ -106,7 +106,7 @@ function initProductPage() {
         <div class="testimonial-author">
           <div class="testimonial-avatar">${r.avatar}</div>
           <div>
-            <div class="testimonial-name">${r.name} · <span style="font-weight:400;color:var(--text-muted)">${r.location}</span></div>
+            <div class="testimonial-name">${r.name} � <span style="font-weight:400;color:var(--text-muted)">${r.location}</span></div>
             <div class="testimonial-location">${r.date}</div>
           </div>
         </div>
@@ -151,3 +151,6 @@ function wishlist(id) {
 }
 
 document.addEventListener('DOMContentLoaded', initProductPage);
+
+
+

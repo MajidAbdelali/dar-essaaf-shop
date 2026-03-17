@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    SHOP PAGE JS
    =========================== */
 
@@ -111,3 +111,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderShopGrid();
 });
+

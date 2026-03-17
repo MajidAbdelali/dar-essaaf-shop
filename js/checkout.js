@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    CHECKOUT JS
    =========================== */
 
@@ -98,3 +98,4 @@ function placeOrder() {
 }
 
 document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
+

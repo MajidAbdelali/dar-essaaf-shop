@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    ARTISANS PAGE JS
    =========================== */
 
@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="artisan-profile-name">${a.name}</div>
         <div class="artisan-profile-village">📍 ${a.village}, Djerba</div>
         <p class="artisan-profile-bio">${a.bio}</p>
-        <span class="artisan-profile-specialty">🌴 ${a.specialty}</span>
+        <span class="artisan-profile-specialty">🧵 ${a.specialty}</span>
       </div>
     </div>
   `).join('');
 });
+
+

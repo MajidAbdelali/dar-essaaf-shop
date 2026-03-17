@@ -1,5 +1,5 @@
-/* ===========================
-   DJERBA PALMS — MAIN APP JS
+﻿/* ===========================
+   DAR-ESSAAF-SHOP - MAIN APP JS
    =========================== */
 
 // ======= SAMPLE PRODUCT DATA (replace with API calls to PHP backend) =======
@@ -24,12 +24,12 @@ const ARTISANS = [
   { name: "Maryem Jouini", village: "Houmt Souk", bio: "Maryem started a small cooperative of 12 women in her village, helping artisans sell their work directly without middlemen.", specialty: "Hats & Bags", emoji: "👩" },
   { name: "Hassan Dhouibi", village: "Ajim", bio: "Hassan brings engineering precision to traditional weaving. His storage pieces are both structurally sound and beautifully patterned.", specialty: "Storage Baskets", emoji: "👨" },
   { name: "Najoua Chaâbane", village: "Midoun", bio: "Najoua experiments with natural dyes from pomegranate rind, henna and saffron to create vivid, colorful wall hangings beloved worldwide.", specialty: "Wall Decor", emoji: "👩" },
-  { name: "Mohamed Krichen", village: "Erriadh", bio: "The eldest artisan in our cooperative at 74, Mohamed has spent 60 years perfecting the traditional Djerbian chest — a piece that once held wedding trousseau.", specialty: "Storage Chests", emoji: "👴" },
+  { name: "Mohamed Krichen", village: "Erriadh", bio: "The eldest artisan in our cooperative at 74, Mohamed has spent 60 years perfecting the traditional Djerbian chest - a piece that once held wedding trousseau.", specialty: "Storage Chests", emoji: "👴" },
 ];
 
 const TESTIMONIALS = [
   { text: "The basket I ordered arrived beautifully packaged and is even more gorgeous in person. I can feel the craftsmanship in every weave.", name: "Sophie L.", location: "Paris, France", rating: 5 },
-  { text: "I ordered six mats for my boutique hotel. Guests constantly ask about them — they add an authentic warmth no manufactured product can match.", name: "Ibrahim K.", location: "Dubai, UAE", rating: 5 },
+  { text: "I ordered six mats for my boutique hotel. Guests constantly ask about them - they add an authentic warmth no manufactured product can match.", name: "Ibrahim K.", location: "Dubai, UAE", rating: 5 },
   { text: "The tote bag is both functional and stunning. I take it everywhere. The quality is exceptional for the price.", name: "Anna M.", location: "Berlin, Germany", rating: 5 },
 ];
 
@@ -61,7 +61,7 @@ function addToCart(productId, qty = 1) {
   }
 
   saveCart();
-  showToast(`🌴 "${product.name}" added to cart!`, 'success');
+  showToast(`✅ "${product.name}" added to cart!`, 'success');
 }
 
 function removeFromCart(productId) {
@@ -203,3 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab) tab.click();
   }
 });
+
+
+
+

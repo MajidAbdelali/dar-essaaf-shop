@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin — Djerba Palms</title>
+  <title>Admin - dar-essaaf-shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,13 +59,29 @@
     .tab-btn { padding: 8px 18px; border: 1px solid var(--border); background: white; border-radius: 4px; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--muted); }
     .tab-btn.active { background: var(--blue); color: white; border-color: var(--blue); }
     .section-hidden { display: none; }
+    /* Modal */
+    .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000; align-items: center; justify-content: center; }
+    .modal-backdrop.open { display: flex; }
+    .modal { background: white; border-radius: 10px; width: 560px; max-width: 95vw; max-height: 92vh; overflow-y: auto; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    .modal-head h3 { font-size: 1rem; font-weight: 700; }
+    .modal-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); line-height: 1; }
+    .modal-body { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .modal-body .full { grid-column: 1 / -1; }
+    .field label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px; }
+    .field input, .field select, .field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.875rem; font-family: inherit; background: white; }
+    .field textarea { resize: vertical; min-height: 72px; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,85,164,0.1); }
+    .modal-foot { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+    .btn-ghost { background: white; color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: #f5f5f5; }
   </style>
 </head>
 <body>
 
   <!-- SIDEBAR -->
   <aside class="admin-sidebar">
-    <div class="admin-brand">🌴 Djerba Palms</div>
+    <div class="admin-brand">🌴 dar-essaaf-shop</div>
     <nav class="admin-nav">
       <a href="#" class="active" onclick="showTab('dashboard', this)">📊 Dashboard</a>
       <a href="#" onclick="showTab('orders', this)">🛒 Orders</a>
@@ -90,22 +106,22 @@
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-card-label">Total Orders</div>
-            <div class="stat-card-value" id="statOrders">—</div>
+            <div class="stat-card-value" id="statOrders"> - </div>
             <div class="stat-card-sub">All time</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-label">Revenue</div>
-            <div class="stat-card-value" id="statRevenue">—</div>
-            <div class="stat-card-sub">TND · All time</div>
+            <div class="stat-card-value" id="statRevenue"> - </div>
+            <div class="stat-card-sub">TND � All time</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-label">Products</div>
-            <div class="stat-card-value" id="statProducts">—</div>
+            <div class="stat-card-value" id="statProducts"> - </div>
             <div class="stat-card-sub">Active listings</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-label">Subscribers</div>
-            <div class="stat-card-value" id="statSubscribers">—</div>
+            <div class="stat-card-value" id="statSubscribers"> - </div>
             <div class="stat-card-sub">Newsletter</div>
           </div>
         </div>
@@ -148,7 +164,7 @@
         <div class="admin-table-wrap">
           <div class="admin-table-header">
             <h3>Products</h3>
-            <button class="btn btn-blue btn-sm">+ Add Product</button>
+            <button class="btn btn-blue btn-sm" onclick="openProductModal(null)">+ Add Product</button>
           </div>
           <table>
             <thead><tr>
@@ -172,7 +188,7 @@
               <th>Name</th><th>Village</th><th>Specialty</th><th>Bio</th>
             </tr></thead>
             <tbody>
-              <!-- Static for demo — connect to API for live data -->
+              <!-- Static for demo - connect to API for live data -->
               <tr><td>Fatma Ben Youssef</td><td>Midoun</td><td>Coiled Baskets</td><td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Fatma has been weaving since age 12...</td></tr>
               <tr><td>Ali Ghribi</td><td>Guellala</td><td>Smar Mats</td><td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">A third-generation weaver...</td></tr>
               <tr><td>Maryem Jouini</td><td>Houmt Souk</td><td>Hats & Bags</td><td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Started a cooperative of 12 women...</td></tr>
@@ -201,6 +217,82 @@
 
     </div>
   </div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-backdrop" id="productModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Add Product</h3>
+      <button class="modal-close" onclick="closeProductModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="productId" />
+      <div class="field full">
+        <label>Product Name *</label>
+        <input type="text" id="productName" placeholder="e.g. Midoun Market Basket" />
+      </div>
+      <div class="field">
+        <label>Emoji</label>
+        <input type="text" id="productEmoji" placeholder="🧺" maxlength="4" />
+      </div>
+      <div class="field">
+        <label>Category *</label>
+        <select id="productCategory">
+          <option value="1">Woven Baskets</option>
+          <option value="2">Traditional Mats</option>
+          <option value="3">Home Decor</option>
+          <option value="4">Hats &amp; Bags</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Price (TND) *</label>
+        <input type="number" id="productPrice" min="0" step="0.001" placeholder="48.000" />
+      </div>
+      <div class="field">
+        <label>Old Price (TND)</label>
+        <input type="number" id="productOldPrice" min="0" step="0.001" placeholder="Optional" />
+      </div>
+      <div class="field">
+        <label>Stock Quantity</label>
+        <input type="number" id="productStock" min="0" placeholder="100" />
+      </div>
+      <div class="field">
+        <label>Stock Status</label>
+        <select id="productStatus">
+          <option value="in">In Stock</option>
+          <option value="low">Low Stock</option>
+          <option value="out">Out of Stock</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Badge</label>
+        <select id="productBadge">
+          <option value="">None</option>
+          <option value="best">Best</option>
+          <option value="new">New</option>
+          <option value="sale">Sale</option>
+        </select>
+      </div>
+      <div class="field" style="display:flex;align-items:center;gap:16px;padding-top:20px">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;font-size:0.85rem;font-weight:600">
+          <input type="checkbox" id="productBestseller" /> Bestseller
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;font-size:0.85rem;font-weight:600">
+          <input type="checkbox" id="productFeatured" /> Featured
+        </label>
+      </div>
+      <div class="field full">
+        <label>Description</label>
+        <textarea id="productDescription" placeholder="Product description..."></textarea>
+      </div>
+      <div class="full" style="color:var(--danger);font-size:0.82rem;min-height:18px" id="productModalErr"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="closeProductModal()">Cancel</button>
+      <button class="btn btn-blue" id="saveProductBtn" onclick="saveProduct()">Save</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // ---- TAB SWITCHING ----
@@ -254,7 +346,7 @@ async function loadOrders() {
         <td><strong>${parseFloat(o.total).toFixed(0)} TND</strong></td>
         <td><span class="badge badge-${o.status}">${o.status}</span></td>
         <td>${o.created_at.slice(0,10)}</td>
-        <td><span style="color:var(--muted)">—</span></td>
+        <td><span style="color:var(--muted)"> - </span></td>
       </tr>
     `).join('');
 
@@ -264,10 +356,10 @@ async function loadOrders() {
     }
   } catch (e) {
     // Demo fallback
-    document.getElementById('statOrders').textContent = '—';
-    document.getElementById('statRevenue').textContent = '—';
+    document.getElementById('statOrders').textContent = ' - ';
+    document.getElementById('statRevenue').textContent = ' - ';
     document.getElementById('statProducts').textContent = '12';
-    document.getElementById('statSubscribers').textContent = '—';
+    document.getElementById('statSubscribers').textContent = ' - ';
     document.getElementById('recentOrdersBody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted)">Connect the database to see live orders.</td></tr>';
   }
 }
@@ -281,7 +373,7 @@ async function loadProducts() {
   ];
 
   try {
-    const res = await fetch('../api/products.php?limit=50');
+    const res = await fetch('../api/admin_products.php');
     const data = await res.json();
     renderProducts(data.success ? data.data : DEMO);
   } catch {
@@ -294,17 +386,17 @@ function renderProducts(products) {
     <tr>
       <td>${p.id}</td>
       <td><strong>${p.name}</strong></td>
-      <td>${p.category_name || p.category || '—'}</td>
+      <td>${p.category_name || p.category || ' - '}</td>
       <td>${parseFloat(p.price).toFixed(3)} TND</td>
       <td>
         <span style="color:${p.stock_status==='low'?'#856404':p.stock_status==='out'?'var(--danger)':'var(--success)'}">
-          ${p.stock_quantity ?? '—'} (${p.stock_status})
+          ${p.stock_quantity ?? ' - '} (${p.stock_status})
         </span>
       </td>
       <td>⭐ ${p.rating}</td>
-      <td>${p.badge ? `<span class="badge badge-confirmed">${p.badge}</span>` : '—'}</td>
+      <td>${p.badge ? `<span class="badge badge-confirmed">${p.badge}</span>` : ' - '}</td>
       <td>
-        <button class="btn btn-blue btn-sm">Edit</button>
+        <button class="btn btn-blue btn-sm" onclick='openProductModal(${JSON.stringify(p)})'>Edit</button>
       </td>
     </tr>
   `).join('');
@@ -324,8 +416,90 @@ async function updateOrderStatus(orderId, status) {
   }
 }
 
+// ---- PRODUCT MODAL ----
+function openProductModal(product) {
+  const isEdit = product && product.id;
+  document.getElementById('modalTitle').textContent = isEdit ? 'Edit Product' : 'Add Product';
+  document.getElementById('productId').value          = isEdit ? product.id            : '';
+  document.getElementById('productName').value        = isEdit ? product.name          : '';
+  document.getElementById('productEmoji').value       = isEdit ? (product.emoji || '') : '🧺';
+  document.getElementById('productPrice').value       = isEdit ? parseFloat(product.price)     : '';
+  document.getElementById('productOldPrice').value    = isEdit && product.old_price ? parseFloat(product.old_price) : '';
+  document.getElementById('productCategory').value   = isEdit ? product.category_id   : '1';
+  document.getElementById('productStock').value       = isEdit ? product.stock_quantity : 100;
+  document.getElementById('productStatus').value      = isEdit ? (product.stock_status || 'in') : 'in';
+  document.getElementById('productBadge').value       = isEdit ? (product.badge || '')  : '';
+  document.getElementById('productBestseller').checked = isEdit ? !!parseInt(product.is_bestseller) : false;
+  document.getElementById('productFeatured').checked   = isEdit ? !!parseInt(product.is_featured)   : false;
+  document.getElementById('productDescription').value  = isEdit ? (product.description || '') : '';
+  document.getElementById('productModalErr').textContent = '';
+  document.getElementById('productModal').classList.add('open');
+}
+
+function closeProductModal() {
+  document.getElementById('productModal').classList.remove('open');
+}
+
+async function saveProduct() {
+  const id    = document.getElementById('productId').value;
+  const isEdit = !!id;
+  const payload = {
+    name:           document.getElementById('productName').value.trim(),
+    emoji:          document.getElementById('productEmoji').value.trim(),
+    price:          document.getElementById('productPrice').value,
+    old_price:      document.getElementById('productOldPrice').value,
+    category_id:    document.getElementById('productCategory').value,
+    stock_quantity: document.getElementById('productStock').value,
+    stock_status:   document.getElementById('productStatus').value,
+    badge:          document.getElementById('productBadge').value,
+    is_bestseller:  document.getElementById('productBestseller').checked ? 1 : 0,
+    is_featured:    document.getElementById('productFeatured').checked   ? 1 : 0,
+    description:    document.getElementById('productDescription').value.trim(),
+  };
+  if (isEdit) payload.id = id;
+
+  const errEl = document.getElementById('productModalErr');
+  if (!payload.name || !payload.price || !payload.category_id) {
+    errEl.textContent = 'Name, price and category are required.';
+    return;
+  }
+
+  const btn = document.getElementById('saveProductBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const res = await fetch('../api/admin_products.php', {
+      method: isEdit ? 'PUT' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error('Server error: ' + text.replace(/<[^>]+>/g, '').trim().slice(0, 200)); }
+    if (!data.success) throw new Error(data.error || 'Save failed');
+    closeProductModal();
+    loadProducts();
+  } catch (e) {
+    errEl.textContent = e.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save';
+  }
+}
+
+// Close modal on backdrop click
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) closeProductModal();
+});
+
 // Init
 loadOrders();
 </script>
 </body>
 </html>
+
+
+
+
