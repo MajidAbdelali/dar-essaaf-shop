@@ -18,7 +18,8 @@
       width: 220px; background: #141210; color: #C8BFB3; flex-shrink: 0;
       display: flex; flex-direction: column; padding: 0; position: sticky; top: 0; height: 100vh;
     }
-    .admin-brand { padding: 24px 20px; font-size: 1.1rem; font-weight: 700; color: #EEDC9A; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .admin-brand { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: center; }
+    .admin-brand img { display: block; width: 96px; height: auto; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.22)); }
     .admin-nav { flex: 1; padding: 16px 0; }
     .admin-nav a { display: flex; align-items: center; gap: 10px; padding: 11px 20px; font-size: 0.875rem; color: #9A948E; transition: all 0.2s; text-decoration: none; }
     .admin-nav a:hover, .admin-nav a.active { color: white; background: rgba(255,255,255,0.06); }
@@ -81,7 +82,9 @@
 
   <!-- SIDEBAR -->
   <aside class="admin-sidebar">
-    <div class="admin-brand">🌴 dar-essaaf-shop</div>
+    <div class="admin-brand">
+      <img src="../assets/dar-essaaf-logo.png" alt="Dar Essaaf" />
+    </div>
     <nav class="admin-nav">
       <a href="#" class="active" onclick="showTab('dashboard', this)">📊 Dashboard</a>
       <a href="#" onclick="showTab('orders', this)">🛒 Orders</a>

@@ -159,29 +159,31 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  min-height: 76px;
   gap: 24px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
 }
 
-.logo-icon { font-size: 1.4rem; }
-
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--text);
+.logo-img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
 }
 
-.logo-text em {
-  color: var(--blue);
-  font-style: italic;
+.logo--footer {
+  display: inline-flex;
+}
+
+.footer-logo {
+  display: block;
+  width: min(132px, 38vw);
+  height: auto;
 }
 
 .main-nav {
@@ -850,7 +852,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
 }
 
 .footer-brand p {
-  margin-top: 12px;
+  margin-top: 18px;
   font-size: 0.85rem;
   opacity: 0.7;
   max-width: 220px;
@@ -1972,7 +1974,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
   .main-nav {
     display: none;
     position: fixed;
-    top: 70px;
+    top: 68px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -1999,7 +2001,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
   .testimonials-track { grid-template-columns: 1fr; }
 
   .shop-layout { grid-template-columns: 1fr; }
-  .shop-sidebar { display: none; position: fixed; inset: 0; z-index: 998; border-radius: 0; top: 70px; overflow-y: auto; }
+  .shop-sidebar { display: none; position: fixed; inset: 0; z-index: 998; border-radius: 0; top: 68px; overflow-y: auto; }
   .shop-sidebar.mobile-open { display: block; }
   .mobile-filter-btn { display: flex; }
 
@@ -2022,6 +2024,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
   .reviews-grid { grid-template-columns: 1fr; }
 
   .footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px 24px; }
+  .header-inner { min-height: 68px; }
+  .logo-img { width: 3px; height: 3px; }
+  .footer-logo { width: 108px; }
 
   .newsletter-box { padding: 40px 24px; }
   .newsletter-form { flex-direction: column; }
