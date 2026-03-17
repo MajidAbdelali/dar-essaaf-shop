@@ -143,7 +143,7 @@ export default function NotreHistoirePage() {
           <h2 className="font-serif text-4xl font-bold text-[#1B4F8C] mb-6">Préserver. Partager. Perpétuer.</h2>
           <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto text-lg">
             Chaque achat chez Dar-Essaaf contribue directement à la préservation de l&apos;artisanat djerbien 
-            et au soutien des femmes artisanes. Vous ne achetez pas seulement un objet — 
+            et au soutien des femmes artisanes. Vous n&apos;achetez pas seulement un objet — 
             vous participez à la transmission d&apos;un patrimoine millénaire.
           </p>
         </div>
