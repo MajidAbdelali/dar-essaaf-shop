@@ -39,11 +39,17 @@ function renderShopGrid() {
     ? visible.map(renderProductCard).join('')
     : `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted);">
         <p style="font-size:3rem">🌴</p>
-        <p>No products found matching your filters.</p>
-        <button class="btn btn-ghost" onclick="resetFilters()" style="margin-top:16px">Reset Filters</button>
+        <p>${t('No products found matching your filters.', 'Aucun produit ne correspond a vos filtres.')}</p>
+        <button class="btn btn-ghost" onclick="resetFilters()" style="margin-top:16px">${t('Reset Filters', 'Reinitialiser les filtres')}</button>
       </div>`;
 
-  if (countEl) countEl.textContent = `Showing ${Math.min(displayedCount, filtered.length)} of ${filtered.length} products`;
+  if (countEl) {
+    const shown = Math.min(displayedCount, filtered.length);
+    countEl.textContent = t(
+      `Showing ${shown} of ${filtered.length} products`,
+      `Affichage de ${shown} sur ${filtered.length} produits`
+    );
+  }
   if (loadMoreBtn) loadMoreBtn.style.display = filtered.length > displayedCount ? 'inline-flex' : 'none';
 }
 

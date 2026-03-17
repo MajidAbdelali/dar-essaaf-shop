@@ -10,11 +10,11 @@ function switchContactTab(tab, btn) {
 }
 
 function submitContact() {
-  showToast('Message sent! We\'ll reply within 24 hours. 🌴', 'success');
+  showToast(t('Message sent! We\'ll reply within 24 hours. 🌴', 'Message envoye ! Nous repondrons sous 24 heures. 🌴'), 'success');
 }
 
 function submitWholesale() {
-  showToast('Wholesale inquiry received! Our team will contact you within 48 hours.', 'success');
+  showToast(t('Wholesale inquiry received! Our team will contact you within 48 hours.', 'Demande grossiste recue ! Notre equipe vous contactera sous 48 heures.'), 'success');
 }
 
 // Open wholesale tab from URL hash

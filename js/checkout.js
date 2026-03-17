@@ -13,7 +13,7 @@ function renderCheckoutSummary() {
       <div class="checkout-summary-item-img">${item.emoji}</div>
       <div class="checkout-summary-item-info">
         <div class="checkout-summary-item-title">${item.name}</div>
-        <div class="checkout-summary-item-qty">Qty: ${item.qty}</div>
+        <div class="checkout-summary-item-qty">${t('Qty', 'Qt')} : ${item.qty}</div>
       </div>
       <div class="checkout-summary-item-price">${(item.price * item.qty).toFixed(0)} TND</div>
     </div>
@@ -54,12 +54,12 @@ function placeOrder() {
   const address = document.getElementById('address')?.value;
 
   if (!email || !firstName || !address) {
-    showToast('Please fill in all required fields.');
+    showToast(t('Please fill in all required fields.', 'Veuillez remplir tous les champs obligatoires.'));
     return;
   }
 
   if (cart.length === 0) {
-    showToast('Your cart is empty!');
+    showToast(t('Your cart is empty!', 'Votre panier est vide !'));
     return;
   }
 
@@ -86,13 +86,13 @@ function placeOrder() {
       localStorage.removeItem('djerbaCart');
       window.location = 'order-success.html?id=' + data.orderId;
     } else {
-      showToast('Error placing order. Please try again.');
+      showToast(t('Error placing order. Please try again.', 'Erreur lors de la commande. Veuillez reessayer.'));
     }
   })
   .catch(() => {
     // Demo fallback
     localStorage.removeItem('djerbaCart');
-    showToast('Order placed! Thank you. 🌴', 'success');
+    showToast(t('Order placed! Thank you. 🌴', 'Commande confirmee ! Merci. 🌴'), 'success');
     setTimeout(() => window.location = 'index.html', 2000);
   });
 }

@@ -24,7 +24,7 @@ function initProductPage() {
 
   // Breadcrumb
   const bc = document.getElementById('productBreadcrumb');
-  if (bc) bc.innerHTML = `<a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span>${product.name}</span>`;
+  if (bc) bc.innerHTML = `<a href="index.html">${t('Home', 'Accueil')}</a> / <a href="shop.html">${t('Shop', 'Boutique')}</a> / <span>${product.name}</span>`;
 
   document.title = `${product.name} - dar-essaaf-shop`;
 
@@ -33,8 +33,8 @@ function initProductPage() {
   if (!layout) return;
 
   const stockHtml = product.stock === 'low'
-    ? `<div class="product-stock stock-low">⚠ Only 2 left in stock</div>`
-    : `<div class="product-stock stock-in">✓ In Stock � Ready to ship</div>`;
+    ? `<div class="product-stock stock-low">⚠ ${t('Only 2 left in stock', 'Plus que 2 en stock')}</div>`
+    : `<div class="product-stock stock-in">✓ ${t('In Stock - Ready to ship', 'En stock - Pret a expedier')}</div>`;
 
   const oldPriceHtml = product.oldPrice
     ? `<span class="product-price-old">${product.oldPrice} TND</span>`
@@ -51,11 +51,11 @@ function initProductPage() {
       </div>
     </div>
     <div class="product-info-col">
-      <div class="product-category-tag">${product.category} � By ${product.artisan}, ${product.village}</div>
+      <div class="product-category-tag">${product.category} - ${t('By', 'Par')} ${product.artisan}, ${product.village}</div>
       <h1 class="product-title">${product.name}</h1>
       <div class="product-rating-row">
         <span class="stars" style="font-size:1rem;color:#F4A233">${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5-Math.round(product.rating))}</span>
-        <span style="font-size:0.85rem;color:var(--text-muted)">${product.rating} � ${product.reviews} reviews</span>
+        <span style="font-size:0.85rem;color:var(--text-muted)">${product.rating} - ${product.reviews} ${t('reviews', 'avis')}</span>
       </div>
       <div class="product-price-row">
         <span class="product-price-main">${product.price} TND</span>
@@ -68,11 +68,11 @@ function initProductPage() {
           <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="10" onchange="currentQty = parseInt(this.value)" />
           <button class="qty-btn" onclick="changeQty(1)">+</button>
         </div>
-        <span style="font-size:0.78rem;color:var(--text-muted)">Max 10 per order</span>
+        <span style="font-size:0.78rem;color:var(--text-muted)">${t('Max 10 per order', 'Max 10 par commande')}</span>
       </div>
       <div class="product-cta">
-        <button class="btn btn-primary" onclick="addToCart(${product.id}, currentQty)">Add to Cart</button>
-        <button class="btn btn-ghost" onclick="wishlist(${product.id})">♡ Wishlist</button>
+        <button class="btn btn-primary" onclick="addToCart(${product.id}, currentQty)">${t('Add to Cart', 'Ajouter au panier')}</button>
+        <button class="btn btn-ghost" onclick="wishlist(${product.id})">♡ ${t('Wishlist', 'Favoris')}</button>
       </div>
       <div class="product-accordion" id="productAccordion">
         <!-- Injected below -->
@@ -147,7 +147,7 @@ function toggleAccordion(btn) {
 }
 
 function wishlist(id) {
-  showToast('Added to wishlist ♡');
+  showToast(t('Added to wishlist ♡', 'Ajoute aux favoris ♡'));
 }
 
 document.addEventListener('DOMContentLoaded', initProductPage);

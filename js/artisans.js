@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="artisan-profile-img">${a.emoji}</div>
       <div class="artisan-profile-body">
         <div class="artisan-profile-name">${a.name}</div>
-        <div class="artisan-profile-village">📍 ${a.village}, Djerba</div>
+        <div class="artisan-profile-village">📍 ${a.village}, ${t('Djerba', 'Djerba')}</div>
         <p class="artisan-profile-bio">${a.bio}</p>
-        <span class="artisan-profile-specialty">🧵 ${a.specialty}</span>
+        <span class="artisan-profile-specialty">🧵 ${t('Specialty', 'Specialite')} : ${a.specialty}</span>
       </div>
     </div>
   `).join('');
